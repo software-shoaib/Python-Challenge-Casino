@@ -21,5 +21,35 @@ def estimate_average_slot_payout(n_runs):
     avg_payout = sum(payouts) / n_runs
     return avg_payout
 
+
+
+In this example, the play_slot_machine() function generates a random number using the random.random() function from the random module. The function then uses different probability ranges to determine the outcome of the slot machine.
+
+There's a 95% chance of winning $0 (0.95 probability range).
+There's a 5% chance of winning $10 (0.995 probability range).
+There's a 0.4% chance of winning $100 (0.999 probability range).
+There's a 0.1% chance of winning $1000 (1.0 probability range).
+Feel free to adjust the probabilities and winnings according to your specific requirements.
 estimate_average_slot_payout(10000000)
 This should return an answer close to 0.025!
+
+import random
+
+
+def play_slot_machine():
+    # Generate a random number between 0 and 1
+    random_number = random.random()
+
+    # Determine the outcome based on the random number
+    if random_number < 0.95:
+        # 95% chance of winning $0
+        return 0
+    elif random_number < 0.995:
+        # 5% chance of winning $10
+        return 10
+    elif random_number < 0.999:
+        # 0.4% chance of winning $100
+        return 100
+    else:
+        # 0.1% chance of winning $1000
+        return 1000
